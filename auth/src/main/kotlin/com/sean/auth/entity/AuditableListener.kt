@@ -20,6 +20,10 @@ class AuditableListener {
     }
 
     private fun getCurrentUser(): String? {
-        return "auditable"
+        val authentication = SecurityContextHolder.getContext().authentication
+        if(authentication == null || !authentication.isAuthenticated) {
+            return "auditable"
+        }
+        return authentication.name
     }
 }

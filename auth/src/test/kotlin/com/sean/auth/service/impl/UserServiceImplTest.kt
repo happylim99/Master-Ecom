@@ -4,24 +4,17 @@ import com.fasterxml.jackson.databind.ObjectMapper
 import com.sean.auth.entity.User
 import com.sean.auth.repo.RoleRepo
 import com.sean.auth.repo.UserRepo
-import com.sean.auth.service.UserService
-import com.sean.auth.ui.req.UserCreateReq
-import com.sean.auth.ui.res.UserRes
+import com.sean.auth.ui.req.UserCrtReq
 import com.sean.auth.util.AuthUtil
 import io.mockk.MockKAnnotations
 import io.mockk.every
 import io.mockk.impl.annotations.InjectMockKs
 import io.mockk.impl.annotations.MockK
 import io.mockk.impl.annotations.RelaxedMockK
-import io.mockk.mockk
 import org.junit.jupiter.api.Test
 
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.BeforeEach
-import org.junit.jupiter.api.fail
-import org.mockito.Mock
-import org.springframework.beans.BeanUtils
-import org.springframework.data.repository.findByIdOrNull
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 
 internal class UserServiceImplTest {
@@ -82,8 +75,8 @@ internal class UserServiceImplTest {
         return user
     }
 
-    private fun getUserCreateReq(): UserCreateReq {
-        val userReq = UserCreateReq("aaa", "aaa",
+    private fun getUserCreateReq(): UserCrtReq {
+        val userReq = UserCrtReq("aaa", "aaa",
             "aaa@aaa.com", encryptedPassword)
         return userReq
     }

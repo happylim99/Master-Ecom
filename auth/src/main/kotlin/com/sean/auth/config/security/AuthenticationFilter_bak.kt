@@ -1,21 +1,5 @@
 package com.sean.auth.config.security
 
-import com.fasterxml.jackson.databind.ObjectMapper
-import com.sean.auth.entity.User
-import com.sean.auth.ext.toBase64
-import com.sean.auth.service.UserService
-import com.sean.auth.ui.req.LoginReq
-import com.sean.auth.ui.req.UserCreateReq
-import org.springframework.security.authentication.AuthenticationManager
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken
-import org.springframework.security.core.Authentication
-import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter
-import java.io.IOException
-import java.util.*
-import javax.servlet.FilterChain
-import javax.servlet.http.HttpServletRequest
-import javax.servlet.http.HttpServletResponse
-
 /*
 class AuthenticationFilter_bak(
     private val authManager: AuthenticationManager,

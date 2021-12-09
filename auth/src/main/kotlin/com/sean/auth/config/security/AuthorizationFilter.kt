@@ -34,10 +34,12 @@ class AuthorizationFilter(
 
         val log: Logger = LoggerFactory.getLogger(AuthorizationFilter::class.java)
 
-        if(request.servletPath.equals("/user/login") || request.servletPath.equals("/user/refreshToken")) {
+        if(request.servletPath.equals("/user/login")
+            || request.servletPath.equals("/user/register")
+            || request.servletPath.equals("/user/refreshToken")) {
             filterChain.doFilter(request, response)
         } else {
-            val authHeader: String = request.getHeader(SecurityConst.HEADER_STRING)
+            val authHeader: String? = request.getHeader(SecurityConst.HEADER_STRING)
             if(authHeader != null && authHeader.startsWith(SecurityConst.TOKEN_PREFIX)) {
                 try {
                     val decodeJwt = authUtil.decodeJwt(request, response)

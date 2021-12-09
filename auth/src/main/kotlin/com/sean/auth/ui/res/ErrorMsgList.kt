@@ -2,6 +2,7 @@ package com.sean.auth.ui.res
 
 enum class ErrorMsgList(val value: String) {
     MISSING_REQUIRED_FIELD("Missing required field. Please check documentation for required fields"),
+    PASSWORD_MISMATCH("Password mismatch"),
     RECORD_ALREADY_EXISTS("Record already exists"),
     INTERNAL_SERVER_ERROR("Internal server error"),
     NO_RECORD_FOUND("Record with provided id is not found"),

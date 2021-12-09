@@ -8,6 +8,7 @@ import org.springframework.beans.BeanUtils
 import org.springframework.data.jpa.repository.JpaRepository
 import kotlin.reflect.KClass
 
+/*
 abstract class Crud<LOGC, ENTITY, RES, REPO: JpaRepository<ENTITY, Long>>(
     logC: Class<LOGC>,
     private val entity: Class<ENTITY>,
@@ -80,3 +81,5 @@ abstract class Crud<LOGC, ENTITY, RES, REPO: JpaRepository<ENTITY, Long>>(
 //    }
 
 //}
+
+ */

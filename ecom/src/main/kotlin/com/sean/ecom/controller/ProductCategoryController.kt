@@ -23,10 +23,10 @@ class ProductCategoryController @Autowired constructor(
         return ResponseEntity.ok(srv.createOne(req))
     }
 
-    @PutMapping("/{id}")
-    fun updateOne(@PathVariable id: String,
+    @PutMapping("/{uid}")
+    fun updateOne(@PathVariable uid: String,
                   @RequestBody req: ProductCategoryUptReq): ResponseEntity<ProductCategory> {
-        return ResponseEntity.ok(srv.updateOne(id, req))
+        return ResponseEntity.ok(srv.updateOne(uid, req))
     }
 
     @GetMapping("/{id}")

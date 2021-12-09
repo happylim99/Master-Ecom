@@ -2,11 +2,10 @@ package com.sean.base.config
 
 import com.sean.base.annotation.Slf4j
 import com.sean.base.annotation.Slf4j.Companion.log
+import com.sean.base.exception.NoLogException
 import org.aspectj.lang.ProceedingJoinPoint
 import org.aspectj.lang.annotation.Around
 import org.aspectj.lang.annotation.Aspect
-import org.slf4j.Logger
-import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Component
 
 @Aspect
@@ -44,7 +43,7 @@ class AopConfig {
             }
             joinPoint.proceed()
         } catch (throwable: Throwable) {
-            if(throwable::class.simpleName.equals("CException")) {
+            if(throwable::class.java.interfaces.contains(NoLogException::class.java)) {
                 log.error("*** Checked Exception during executing $signature")
             } else {
                 log.error("*** Exception during executing $signature", throwable)

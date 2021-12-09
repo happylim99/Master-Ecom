@@ -17,7 +17,7 @@ class User: Auditable<String> {
 
     constructor(
         id: Long,
-        userId: String,
+        uid: String,
         name: String,
         username: String,
         email: String,
@@ -27,7 +27,7 @@ class User: Auditable<String> {
         roles: MutableSet<Role>
     ) : super() {
         this.id = id
-        this.userId = userId
+        this.uid = uid
         this.name = name
         this.username = username
         this.email = email
@@ -37,13 +37,12 @@ class User: Auditable<String> {
         this.roles = roles
     }
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long = 0
 
-    @Column(nullable=false)
-    var userId = ""
+    @Column(nullable=false, unique = true)
+    var uid = ""
 
     @Column(nullable=false, length=50)
     var name = ""

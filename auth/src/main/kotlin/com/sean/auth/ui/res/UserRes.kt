@@ -4,7 +4,7 @@ import com.sean.auth.entity.Role
 import org.springframework.hateoas.RepresentationModel
 
 data class UserRes(
-    var userId: String = "",
+    var uid: String = "",
     var name: String = "",
     var username: String = "",
     var email: String = "",

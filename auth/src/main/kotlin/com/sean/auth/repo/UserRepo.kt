@@ -6,5 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository
 interface UserRepo: JpaRepository<User, Long> {
 
     fun findByEmail(email: String): User?
-    fun findByUserId(id: String): User?
+    fun findByUid(uid: String): User?
+    fun deleteByUid(uid: String): Long
 }

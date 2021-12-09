@@ -1,6 +1,7 @@
 package com.sean.auth.config.security
 
 import org.springframework.context.annotation.Configuration
+import org.springframework.http.HttpMethod
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
 import org.springframework.security.config.annotation.web.builders.WebSecurity
@@ -25,8 +26,8 @@ class WebSecurity(
 
     override fun configure(http: HttpSecurity) {
         http.csrf().disable().authorizeRequests()
-            .antMatchers("/user/createOne")
-            .permitAll()
+//            .antMatchers(HttpMethod.POST,"/user/register")
+//            .permitAll()
             .anyRequest().authenticated()
             .and()
             .addFilter(getAuthenticationFilter())
@@ -45,7 +46,8 @@ class WebSecurity(
     override fun configure(web: WebSecurity?) {
         web?.let {
             it.ignoring()
-                .antMatchers("/test/**")
+                .antMatchers(HttpMethod.POST,"/user/register")
+                .antMatchers(HttpMethod.GET,"/user/refreshToken")
         }
     }
 }

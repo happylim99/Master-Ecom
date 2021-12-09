@@ -4,5 +4,5 @@ import java.lang.RuntimeException
 
 class CException(
     private val msg: String
-): RuntimeException(msg) {
+): RuntimeException(msg), NoLogException {
 }
